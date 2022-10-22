@@ -19,6 +19,9 @@ def handle_unauditable
   UnauditableMorningMentalState.new
 end
 
+class OkMorningMentalState < MorningMentalState ; end
+class NotOkMorningMentalState < MorningMentalState ; end
+
 def audit_sanity(bedtime_mental_state)
   # returning error code 
   return handle_unauditable unless bedtime_mental_state.auditable?
