@@ -46,8 +46,11 @@ class MorningMentalState < MentalState ; end
 class UnauditableMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
-  return UnauditableMentalState.new unless bedtime_mental_state.auditable?
-  handle_audit(bedtime_mental_state)
+  if bedtime_mental_state.auditable?
+    handle_audit(bedtime_mental_state)
+  else
+    handle_unauditable
+  end
 end
 
 new_state = audit_sanity(bedtime_mental_state)
