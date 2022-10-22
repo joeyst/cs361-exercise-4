@@ -29,8 +29,11 @@ end
 
 def audit_sanity(bedtime_mental_state)
   # returning error code 
-  return handle_unauditable unless bedtime_mental_state.auditable?
-  handle_audit(bedtime_mental_state)
+  if bedtime_mental_state.auditable?
+    handle_audit(bedtime_mental_state)
+  else
+    handle_unauditable
+  end
 end
 
 # switching on error code 
