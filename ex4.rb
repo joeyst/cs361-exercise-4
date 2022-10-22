@@ -13,17 +13,24 @@ class MentalState
 end
 
 def audit_sanity(bedtime_mental_state)
+  # returning error code 
   return 0 unless bedtime_mental_state.auditable?
+
+  # returning error code as part of object 
   if bedtime_mental_state.audit!.ok?
+    # writing lower-level abstraction logic in `if` statement 
     MorningMentalState.new(:ok)
   else 
+    # writing lower-level abstraction logic in `if` statement 
     MorningMentalState.new(:not_ok)
   end
 end
 
+# switching on error code 
 if audit_sanity(bedtime_mental_state) == 0
   puts "error"
 else
+  # calling again to create different type of object. Could even create an error here from mutation 
   new_state = audit_sanity(bedtime_mental_state)
 end
 
