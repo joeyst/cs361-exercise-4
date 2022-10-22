@@ -63,6 +63,10 @@ new_state.do_work
 
 require 'candy_service'
 
+def make_candy_machine
+  CandyMachine.new
+end
+
 # relying on unwrapped dependency 
 machine = CandyMachine.new
 # using method on unwrapped dependency 
