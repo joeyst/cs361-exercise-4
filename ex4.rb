@@ -47,7 +47,7 @@ class UnauditableMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
   # returning `Null` as special case 
-  return nil unless bedtime_mental_state.auditable?
+  return UnauditableMentalState.new unless bedtime_mental_state.auditable?
   # conditionally returning different type of object 
   if bedtime_mental_state.audit!.ok?
     # storing error code as attribute of object, using lower-level abstraction logic (needs extracted)
