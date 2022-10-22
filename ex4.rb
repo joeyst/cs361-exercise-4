@@ -68,7 +68,7 @@ def make_candy_machine
 end
 
 # relying on unwrapped dependency 
-machine = CandyMachine.new
+machine = make_candy_machine
 # using method on unwrapped dependency 
 machine.prepare
 
