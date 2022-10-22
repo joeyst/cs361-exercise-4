@@ -21,7 +21,7 @@ end
 
 def audit_sanity(bedtime_mental_state)
   # returning error code 
-  return 0 unless bedtime_mental_state.auditable?
+  return handle_unauditable unless bedtime_mental_state.auditable?
 
   # returning error code as part of object 
   if bedtime_mental_state.audit!.ok?
