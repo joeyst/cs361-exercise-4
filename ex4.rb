@@ -28,7 +28,6 @@ def handle_audit(bedtime_mental_state)
 end
 
 def audit_sanity(bedtime_mental_state)
-  # returning error code 
   if bedtime_mental_state.auditable?
     handle_audit(bedtime_mental_state)
   else
@@ -43,6 +42,8 @@ new_state = audit_sanity(bedtime_mental_state)
 class BedtimeMentalState < MentalState ; end
 
 class MorningMentalState < MentalState ; end
+
+class UnauditableMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
   # returning `Null` as special case 
