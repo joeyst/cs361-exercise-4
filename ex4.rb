@@ -22,11 +22,17 @@ end
 class OkMorningMentalState < MorningMentalState ; end
 class NotOkMorningMentalState < MorningMentalState ; end
 
+def handle_audit(bedtime_mental_state)
+  assert bedtime_mental_state.auditable?
+  bedtime_mental_state.audit!.ok? ? OkMorningMentalState.new : NotOkMorningMentalState.new
+end
+
 def audit_sanity(bedtime_mental_state)
   # returning error code 
   return handle_unauditable unless bedtime_mental_state.auditable?
   return OkMorningMentalState.new if bedtime_mental_state.audit!.ok?
   NotOkMorningMentalState.new
+  
 end
 
 # switching on error code 
