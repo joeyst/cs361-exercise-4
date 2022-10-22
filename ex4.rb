@@ -56,9 +56,6 @@ end
 new_state = audit_sanity(bedtime_mental_state)
 new_state.do_work
 
-
-
-
 # Exercise 5 Part 3 (Wrapping APIs)
 
 require 'candy_service'
