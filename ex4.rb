@@ -46,9 +46,7 @@ class MorningMentalState < MentalState ; end
 class UnauditableMentalState < MentalState ; end
 
 def audit_sanity(bedtime_mental_state)
-  # returning `Null` as special case 
   return UnauditableMentalState.new unless bedtime_mental_state.auditable?
-  # conditionally returning different type of object 
   handle_audit(bedtime_mental_state)
 end
 
