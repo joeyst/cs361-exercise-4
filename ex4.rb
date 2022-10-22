@@ -26,16 +26,7 @@ def audit_sanity(bedtime_mental_state)
   # returning error code 
   return handle_unauditable unless bedtime_mental_state.auditable?
   return OkMorningMentalState.new if bedtime_mental_state.audit!.ok?
-  return NotOkMorningMentalState.new
-
-  # returning error code as part of object 
-  if bedtime_mental_state.audit!.ok?
-    # writing lower-level abstraction logic in `if` statement 
-    MorningMentalState.new(:ok)
-  else 
-    # writing lower-level abstraction logic in `if` statement 
-    MorningMentalState.new(:not_ok)
-  end
+  NotOkMorningMentalState.new
 end
 
 # switching on error code 
