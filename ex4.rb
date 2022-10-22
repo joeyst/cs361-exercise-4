@@ -67,10 +67,14 @@ new_state.do_work
 
 require 'candy_service'
 
+# relying on unwrapped dependency 
 machine = CandyMachine.new
+# using method on unwrapped dependency 
 machine.prepare
 
+# using method on unwrapped dependency 
 if machine.ready?
+  # using method on unwrapped dependency 
   machine.make!
 else
   puts "sadness"
