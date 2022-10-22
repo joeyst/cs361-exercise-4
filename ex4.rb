@@ -30,9 +30,7 @@ end
 def audit_sanity(bedtime_mental_state)
   # returning error code 
   return handle_unauditable unless bedtime_mental_state.auditable?
-  return OkMorningMentalState.new if bedtime_mental_state.audit!.ok?
-  NotOkMorningMentalState.new
-  
+  handle_audit(bedtime_mental_state)
 end
 
 # switching on error code 
