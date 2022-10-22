@@ -36,17 +36,7 @@ def audit_sanity(bedtime_mental_state)
   end
 end
 
-# switching on error code 
-if audit_sanity(bedtime_mental_state) == 0
-  puts "error"
-else
-  # calling again to create different type of object. Could even create an error here from mutation 
-  new_state = audit_sanity(bedtime_mental_state)
-end
-
-
-
-
+new_state = audit_sanity(bedtime_mental_state)
 
 # Exercise 5 Part 2 (Don't Return Null / Null Object Pattern)
 
